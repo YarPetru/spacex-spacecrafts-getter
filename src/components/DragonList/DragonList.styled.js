@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import theme from 'styles/theme';
-
 export const PageTitle = styled.h2`
-  color: ${theme.colors.secondaryFont};
+  color: ${({ theme }) => theme.colors.secondaryFont};
   font-size: 20px;
 `;
 
@@ -24,7 +22,7 @@ export const ImageWrapper = styled.div`
   border-radius: 20px;
   overflow: hidden;
 
-  box-shadow: ${theme.shadows.item};
+  box-shadow: ${({ theme }) => theme.shadows.item};
 
   :hover > img {
     opacity: 0.3;
@@ -41,7 +39,7 @@ export const Image = styled.img`
   object-fit: cover;
   width: 100%;
   height: 100%;
-  transition: ${theme.transition.transitionFunction};
+  transition: ${({ theme }) => theme.transition.transitionFunction};
 `;
 
 export const Overlay = styled.div`
@@ -61,22 +59,25 @@ export const Overlay = styled.div`
 
 export const ItemName = styled.p`
   opacity: 0;
-  color: ${theme.colors.primaryFont};
+  color: ${({ theme }) => theme.colors.white};
   font-weight: 400;
   font-size: 16px;
-  transition: ${theme.transition.transitionFunction};
+  transition: ${({ theme }) => theme.transition.transitionFunction};
 `;
 
 export const StyledLink = styled(Link)`
   opacity: 0;
-
-  padding: 12px 16px;
-  border-radius: ${theme.borders.buttonsBorderRadius};
-  background-color: ${theme.colors.accent};
-  color: ${theme.colors.white};
   font-weight: 400;
-  box-shadow: ${theme.shadows.button};
+  padding: 12px 16px;
+  color: ${({ theme }) => theme.colors.primaryFont};
+  border-radius: ${({ theme }) => theme.borders.buttonsBorderRadius};
+  background-color: ${({ theme }) => theme.colors.transparentAccent};
+  box-shadow: ${({ theme }) => theme.shadows.card};
+  transition: ${({ theme }) => theme.transition.transitionFunction};
 
-  transition: ${theme.transition.transitionFunction};
-  /* text-decoration: underline; */
+  :hover {
+    /* color: ${({ theme }) => theme.colors.white}; */
+    box-shadow: ${({ theme }) => theme.shadows.button};
+    background-color: ${({ theme }) => theme.colors.accent};
+  }
 `;

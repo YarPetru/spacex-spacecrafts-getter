@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 import { useGetDragonByIdQuery } from 'redux/dragons/dragonSlice';
+import Carousel from 'components/Carousel';
+
 import {
   CardWrapper,
   CardTitle,
@@ -11,21 +12,31 @@ import {
   WikiLink,
   ParametersList,
   ParametersItem,
+  StyledLink,
 } from './DragonCard.styled';
 
 const DragonCard = () => {
   const { dragonId } = useParams();
 
-  const { data: dragonDetails } = useGetDragonByIdQuery(dragonId);
-  console.log(dragonDetails);
+  const {
+    data: dragonDetails,
+    isSuccess,
+    isError,
+  } = useGetDragonByIdQuery(dragonId, {
+    refetchOnFocus: true,
+  });
+
+  const images = dragonDetails?.flickr_images;
+
   return (
     <>
-      {dragonDetails && (
+      {isSuccess && (
         <CardWrapper>
-          <Picture
-            src={dragonDetails.flickr_images[0]}
-            alt="dragon illustration"
-          />
+          <Carousel>
+            {images.map(img => (
+              <Picture key={img} src={img} alt="dragon illustration" />
+            ))}
+          </Carousel>
           <DescriptionWrapper>
             <CardTitle>{dragonDetails.name}</CardTitle>
             <br />
@@ -47,9 +58,10 @@ const DragonCard = () => {
             </WikiLink>
           </DescriptionWrapper>
           <Description>{dragonDetails.description}</Description>
+          <StyledLink to="/dragons">Back to list</StyledLink>
         </CardWrapper>
       )}
-      <Link to="/dragons">Back to list</Link>
+      {isError && <p>Oops. Something went wrong</p>}
     </>
   );
 };

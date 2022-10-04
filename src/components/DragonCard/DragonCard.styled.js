@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import theme from 'styles/theme';
+import { Link } from 'react-router-dom';
 
 export const CardWrapper = styled.div`
+  position: relative;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -10,26 +11,25 @@ export const CardWrapper = styled.div`
 
   border-radius: 20px;
   padding: 20px;
-  background-color: ${theme.colors.mainBackground};
+  background-color: ${({ theme }) => theme.colors.mainBackground};
 
-  box-shadow: ${theme.shadows.card};
+  box-shadow: ${({ theme }) => theme.shadows.card};
 
-  /* min-width: 300px; */
   max-width: 720px;
-  /* height: 400px; */
 `;
 
 export const CardTitle = styled.h2`
   text-decoration: underline;
   font-size: 20px;
-  color: ${theme.colors.primaryFont};
+  color: ${({ theme }) => theme.colors.primaryFont};
 `;
 
 export const Picture = styled.img`
-  width: 300px;
-  height: 200px;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: ${theme.borders.secondaryBorderRadius};
+  border-radius: ${({ theme }) => theme.borders.secondaryBorderRadius};
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -43,3 +43,21 @@ export const WikiLink = styled.a``;
 export const ParametersList = styled.ul``;
 
 export const ParametersItem = styled.li``;
+
+export const StyledLink = styled(Link)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 12px 16px;
+  color: ${({ theme }) => theme.colors.white};
+
+  background-color: ${({ theme }) => theme.colors.transparentAccent};
+  border-radius: ${({ theme }) => theme.borders.buttonsBorderRadius};
+  box-shadow: ${({ theme }) => theme.shadows.card};
+  transition: ${({ theme }) => theme.transition.transitionFunction};
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.accent};
+    box-shadow: ${({ theme }) => theme.shadows.button};
+  }
+`;

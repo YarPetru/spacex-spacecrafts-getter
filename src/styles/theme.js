@@ -4,6 +4,7 @@ const theme = {
     tablet: '768px',
     desktop: '1280px',
   },
+
   colors: {
     white: '#ffffff',
     mainBackground: '#f6f7fb',
@@ -12,19 +13,22 @@ const theme = {
     secondaryFont: '#898f9f',
     placeholderFont: '#a6abb9',
     accent: '#ff6b08',
+    transparentAccent: '#ff6b0899',
     headerBackground: '#b1b5c2',
-    transparentBackground: '#f5f7fa22',
+    transparentBackground: '#f5f7fa40',
   },
+
   shadows: {
     input: 'inset 0px 1px 2px rgba(29, 29, 27, 0.15)',
-    item: '0px 2px 3px  rgba(9, 30, 63, 0.1)',
     button: '0px 2px 2px rgba(9, 30, 63, 0.15)',
     card: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     modal: '10px 10px 20px rgba(9, 30, 63, 0.2)',
   },
+
   transition: {
-    transitionFunction: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
+    transitionFunction: '300ms cubic-bezier(0.4, 0, 0.2, 1)',
   },
+
   borders: {
     mainBorderRadius: '20px',
     roundBorderRadius: '50%',

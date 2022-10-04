@@ -1,0 +1,1 @@
+export const CAROUSEL_WINDOW_WIDTH = 300;

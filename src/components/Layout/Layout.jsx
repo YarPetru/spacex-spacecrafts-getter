@@ -7,7 +7,7 @@ const Layout = () => {
     <>
       <Header>
         <Container>
-          <nav>csdfsf</nav>
+          <nav>Home</nav>
         </Container>
       </Header>
       <MainSection>
