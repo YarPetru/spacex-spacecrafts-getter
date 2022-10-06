@@ -1,5 +1,5 @@
 const screenSize = {
-  mobile: '320px',
+  mobile: '0px',
   tablet: '768px',
   desktop: '1280px',
 };

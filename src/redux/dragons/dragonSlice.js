@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const dragonInfoApi = createApi({
   reducerPath: 'dragonInfoApi',
   refetchOnFocus: true,
-  //   keepUnusedDataFor: для работы с кешем
+  //   keepUnusedDataFor:
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api.spacexdata.com/v4/',
   }),
@@ -14,7 +14,7 @@ export const dragonInfoApi = createApi({
         url: `dragons`,
         method: 'GET',
       }),
-      providesTags: ['dragonInfo'],
+      providesTags: ['DragonInfo'],
     }),
     getDragonById: builder.query({
       query: id => ({

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import backgroundImage from 'images/main-background.jpg';
+import backgroundImage from 'images/spacex-background.jpg';
 
 export const GlobalStyle = createGlobalStyle`
     
@@ -34,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     }
+
     a {
     text-decoration: none;
     font-style: normal;

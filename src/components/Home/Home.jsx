@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+import { StyledLink } from './Home.styled';
 
 const Home = () => {
   return (
     <>
-      <Link to="/dragons">Go to DragonList</Link>
+      <StyledLink to="/dragons">Go to DragonList</StyledLink>
     </>
   );
 };

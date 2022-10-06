@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { StyledNavButton } from 'components/StyledComponents/NavButton.styled';
+// import { Link } from 'react-router-dom';
 
 export const CardWrapper = styled.div`
   position: relative;
@@ -11,7 +12,7 @@ export const CardWrapper = styled.div`
 
   border-radius: 20px;
   padding: 20px;
-  background-color: ${({ theme }) => theme.colors.mainBackground};
+  background-color: ${({ theme }) => theme.colors.transparentBackground};
 
   box-shadow: ${({ theme }) => theme.shadows.card};
 
@@ -44,11 +45,11 @@ export const ParametersList = styled.ul``;
 
 export const ParametersItem = styled.li``;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(StyledNavButton)`
   position: absolute;
   top: 20px;
   right: 20px;
-  padding: 12px 16px;
+  /* padding: 12px 16px;
   color: ${({ theme }) => theme.colors.white};
 
   background-color: ${({ theme }) => theme.colors.transparentAccent};
@@ -59,5 +60,5 @@ export const StyledLink = styled(Link)`
   :hover {
     background-color: ${({ theme }) => theme.colors.accent};
     box-shadow: ${({ theme }) => theme.shadows.button};
-  }
+  } */
 `;

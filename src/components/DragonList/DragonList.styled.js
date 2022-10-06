@@ -4,25 +4,26 @@ import { Link } from 'react-router-dom';
 export const PageTitle = styled.h2`
   color: ${({ theme }) => theme.colors.secondaryFont};
   font-size: 20px;
+  margin-bottom: 20px;
 `;
 
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
 `;
 
 export const Item = styled.li``;
 
 export const ImageWrapper = styled.div`
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
 
-  border-radius: 20px;
+  border-radius: ${({ theme }) => theme.borders.mainBorderRadius};
   overflow: hidden;
 
-  box-shadow: ${({ theme }) => theme.shadows.item};
+  box-shadow: ${({ theme }) => theme.shadows.modal};
 
   :hover > img {
     opacity: 0.3;
