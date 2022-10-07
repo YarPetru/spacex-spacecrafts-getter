@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
 import { Form, Field, ErrorMessage } from 'formik';
 
+import { StyledLink } from 'components/StyledComponents/CommonComponets.styled';
 import device from 'styles/device';
 
 export const FormWrapper = styled.div`
@@ -147,29 +147,7 @@ export const LoginLinkWrapper = styled.div`
   gap: 8px;
 `;
 
-export const StyledLink = styled(Link)`
-  display: inline-block;
-  text-align: center;
-  text-decoration: underline;
-  transition: ${p => p.theme.transition.transitionFunction};
-
-  :hover,
-  :focus {
-    text-decoration: none;
-    color: ${p => p.theme.colors.accent};
-  }
-
-  @media ${device.mobile} {
-    color: ${p => p.theme.colors.white};
-  }
-
-  @media ${device.tablet} {
-    color: ${p => p.theme.colors.transparentDarkblue};
-  }
-
-  @media ${device.desktop} {
-  }
-`;
+export const LoginLink = styled(StyledLink)``;
 
 export const IsRegistredParagraph = styled.p`
   color: ${p => p.theme.colors.secondaryFont};

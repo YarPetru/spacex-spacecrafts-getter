@@ -16,9 +16,8 @@ export const GlobalStyle = createGlobalStyle`
     -o-background-size: cover;
      background-size: cover;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto',
-        'Abril Fatface', 'Montserrat', 'Open Sans'
-        sans-serif;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

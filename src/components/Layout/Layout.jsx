@@ -5,10 +5,11 @@ import {
   Container,
   Navigation,
   StyledNavLink,
+  LogoutButton,
   MainMenuWrapper,
   AuthMenuWrapper,
   MainSection,
-  Footer,
+  // Footer,
 } from './Layout.styled';
 
 const Layout = () => {
@@ -24,7 +25,9 @@ const Layout = () => {
             <AuthMenuWrapper>
               <StyledNavLink to="signup">Signup</StyledNavLink>
               <StyledNavLink to="login">Login</StyledNavLink>
-              <StyledNavLink to="">Logout</StyledNavLink>
+              <LogoutButton onClick={() => console.log('выйти')}>
+                Logout
+              </LogoutButton>
             </AuthMenuWrapper>
           </Navigation>
         </Container>
@@ -34,9 +37,9 @@ const Layout = () => {
           <Outlet />
         </Container>
       </MainSection>
-      <Footer>
+      {/* <Footer>
         <Container>All right reserved</Container>
-      </Footer>
+      </Footer> */}
     </>
   );
 };

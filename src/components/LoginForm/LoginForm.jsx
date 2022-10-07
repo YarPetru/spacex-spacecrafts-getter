@@ -17,7 +17,9 @@ import {
   StyledField,
   ValidationError,
   SubmitButton,
-  StyledLink,
+  SignupLink,
+  RegisterLinkWrapper,
+  IsRegistredParagraph,
 } from './LoginForm.styled';
 
 const validationSchema = yup.object().shape({
@@ -25,7 +27,7 @@ const validationSchema = yup.object().shape({
     .string('Enter your email')
     .email('Enter a valid email')
     .min(10, 'Email must contain at least 10 characters')
-    .max(63, 'Email must contain no more than 63 characters')
+    .max(50, 'Email must contain no more than 50 characters')
     .matches(/^[a-zA-Z0-9]/, 'Name must start with letter or number')
     .matches(
       /^([a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]{2,})+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -94,7 +96,7 @@ const LoginForm = () => {
                     id="password"
                     name="password"
                     type="password"
-                    placeholder="Пароль"
+                    placeholder="..."
                     autoComplete="off"
                   />
                   <ValidationError name="password" component="div" />
@@ -107,7 +109,12 @@ const LoginForm = () => {
                   LogIn
                   {isFetching && <PulseLoader color="white" size="4px" />}
                 </SubmitButton>
-                <StyledLink to="/signup">SignUp</StyledLink>
+                <RegisterLinkWrapper>
+                  <IsRegistredParagraph>
+                    Are you not registered yet?
+                  </IsRegistredParagraph>
+                  <SignupLink to="/signup">SignUp</SignupLink>
+                </RegisterLinkWrapper>
               </StyledForm>
             );
           }}

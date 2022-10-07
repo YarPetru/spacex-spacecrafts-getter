@@ -15,6 +15,7 @@ export const Navigation = styled.nav`
 `;
 
 export const StyledNavLink = styled(NavLink)`
+  padding: 4px 6px;
   color: ${({ theme }) => theme.colors.primaryFont};
   transition: ${({ theme }) => theme.transition.transitionFunction};
 
@@ -22,8 +23,26 @@ export const StyledNavLink = styled(NavLink)`
     margin-right: 20px;
   }
 
-  :hover,
-  :focus {
+  :hover {
+    color: ${({ theme }) => theme.colors.accent};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.accent};
+  }
+  .active {
+    color: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
+export const LogoutButton = styled.button`
+  padding: 4px 6px;
+  border: 2px solid ${({ theme }) => theme.colors.mainBackground};
+  outline: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  transition: ${({ theme }) => theme.transition.transitionFunction};
+
+  :hover {
     color: ${({ theme }) => theme.colors.accent};
     border-bottom: 2px solid ${({ theme }) => theme.colors.accent};
   }

@@ -18,7 +18,7 @@ import {
   StyledField,
   ValidationError,
   SubmitButton,
-  StyledLink,
+  LoginLink,
   IsRegistredParagraph,
   LoginLinkWrapper,
 } from './SignupForm.styled';
@@ -158,7 +158,7 @@ const SignupForm = () => {
                   <IsRegistredParagraph>
                     Are you already registered?
                   </IsRegistredParagraph>
-                  <StyledLink to="/login">LogIn</StyledLink>
+                  <LoginLink to="/login">LogIn</LoginLink>
                 </LoginLinkWrapper>
               </StyledForm>
             );

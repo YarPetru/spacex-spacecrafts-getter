@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledNavButton } from 'components/StyledComponents/NavButton.styled';
+import { StyledNavButton } from 'components/StyledComponents/CommonComponets.styled';
 // import { Link } from 'react-router-dom';
 
 export const CardWrapper = styled.div`

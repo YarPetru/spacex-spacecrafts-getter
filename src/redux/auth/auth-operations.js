@@ -2,7 +2,9 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import openNotificationWithIcon from 'components/Notification';
-axios.defaults.baseURL = '...herokuapp.com/api';
+axios.defaults.baseURL =
+  'https://spacex-spacecrafts-backend.herokuapp.com/api/';
+// axios.defaults.baseURL = 'http://localhost:9999/api/';
 
 const token = {
   set(token) {
@@ -18,8 +20,11 @@ const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/register', credentials);
-      token.set(data.data.token);
-      return data.data;
+      console.log(data);
+      console.log(credentials);
+
+      // token.set(data.data.token);
+      // return data.data;
     } catch (error) {
       openNotificationWithIcon('warning', error.response.data.message);
       return rejectWithValue(error);
@@ -59,7 +64,7 @@ const logOut = createAsyncThunk(
 );
 
 const fetchCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  'auth/current',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;

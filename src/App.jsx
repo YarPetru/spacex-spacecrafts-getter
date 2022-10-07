@@ -2,6 +2,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 import Layout from './components/Layout';
+import PrivateRoute from 'components/Routes/PrivateRoute';
+import PublicRoute from 'components/Routes/PublicRoute';
 
 import { GlobalStyle } from 'styles/GlobalStyle';
 
@@ -17,11 +19,48 @@ function App() {
       <Suspense fallback="LOADING...">
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="/dragons" element={<DragonListPage />} />
-            <Route path="/dragons/:dragonId" element={<DragonDetailsPage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route
+              index
+              element={
+                <PublicRoute restricted>
+                  <HomePage />
+                </PublicRoute>
+              }
+            />
+
+            <Route
+              path="/dragons"
+              element={
+                <PrivateRoute>
+                  <DragonListPage />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/dragons/:dragonId"
+              element={
+                <PrivateRoute>
+                  <DragonDetailsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <PublicRoute restricted>
+                  <SignupPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute restricted>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
           </Route>
           <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
