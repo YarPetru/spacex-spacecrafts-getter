@@ -1,10 +1,53 @@
-# Getting Started with Create React App
+# Dragons info App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Fullstack app (SPA React.js + Node.js with MonogoDB) allows you to receive
+current information about spacecrafts by SpaceX named Dragons.
+
+## Main functionality
+
+- Authorisation: registration or login for registered users, logout.
+- Getting up-to-date information about dragons for authorized users: Dragons
+  list and more details about each of them
+- This is basic functionality that can be expanded
+
+## Implementation
+
+### Backend (Authorisation) - Node.js + MongoDB
+
+[Project on GitHub](https://github.com/YarPetru/spacex-spacecrafts-backend)
+Backend deployed on
+[heroku](https://spacex-spacecrafts-backend.herokuapp.com/api/). All changes on
+github branch are automaticaly deployed on Heroku. If you want to run the app in
+production/developer mode on your computer remember to change the
+"axios.defaults.baseURL" in Frontend part to "http://localhost:9999/".
+
+Backend created using basic security terms such as password encryption during
+data transfer and user-friendly error-handling in frontend. But e.g. in case of
+an incorrect login user receives message "Email or password is wrong" to make
+hacking a bit more difficult 😅.
+
+### Frontend Stack
+
+- React SPA with adaptive design (using mobile first approach)
+- React router v6 using Private/Public routes pattern
+- Redux Toolkit. Async Thunk for auth, RTK Query for work with
+  [SpaceX Api](https://github.com/r-spacex/SpaceX-API)
+- Handwritten styles (including Carousel) on
+  [styled components](https://styled-components.com/)
+- [Formik](https://www.npmjs.com/package/formik) with
+  [Yup](https://www.npmjs.com/package/yup) validation for Signup an Login forms
+- Deploy on [Netlify](https://ypi-spacex-dragons.netlify.app/)
+
+This project was bootstrapped with
+[Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory you can run::
+
+### `npm install`
+
+For install dev dependencies before working in dev mode
 
 ### `npm start`
 
@@ -12,59 +55,10 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You may also see any lint errors in the console. Additionally configured pre-commit
+linter check
 
-### `npm test`
+### `npm run deploy`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Deploys the project to the [Netlify](https://ypi-spacex-dragons.netlify.app/),
+automatically pre-create the build version
