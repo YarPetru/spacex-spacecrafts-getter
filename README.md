@@ -47,7 +47,7 @@ In the project directory you can run::
 
 ### `npm install`
 
-For install dev dependencies before working in dev mode
+For install dependencies
 
 ### `npm start`
 
