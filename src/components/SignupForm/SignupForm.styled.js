@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
-import { Form, Field, ErrorMessage } from 'formik';
+import { Form, ErrorMessage } from 'formik';
 
-import { StyledLink } from 'components/StyledComponents/CommonComponets.styled';
+import {
+  StyledLink,
+  StyledField,
+} from 'components/CommonComponents/CommonComponets.styled';
 import device from 'styles/device';
 
 export const FormWrapper = styled.div`
@@ -50,7 +53,7 @@ export const StyledForm = styled(Form)`
   @media ${device.tablet} {
     padding: 40px;
     width: 400px;
-    background-color: ${p => p.theme.colors.mainBackground};
+    background-color: ${p => p.theme.colors.white};
   }
 
   @media ${device.desktop} {
@@ -94,20 +97,7 @@ export const AccentedMark = styled.span`
   color: ${p => p.theme.colors.accent};
 `;
 
-export const StyledField = styled(Field)`
-  padding: 8px 12px;
-  outline: none;
-  border-radius: ${p => p.theme.borders.buttonsBorderRadius};
-  border: 1px solid ${p => p.theme.colors.inputBackground};
-  box-shadow: ${p => p.theme.shadows.input};
-  background-color: ${p => p.theme.colors.inputBackground};
-  transition: ${p => p.theme.transition.transitionFunction};
-
-  :hover,
-  :focus {
-    border: 1px solid ${p => p.theme.colors.accent};
-  }
-`;
+export const FormField = styled(StyledField)``;
 
 export const ValidationError = styled(ErrorMessage)`
   font-size: 12px;

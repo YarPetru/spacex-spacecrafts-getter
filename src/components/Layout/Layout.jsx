@@ -1,4 +1,8 @@
 import { Outlet } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations } from 'redux/auth';
+import { getIsLoggedIn } from 'redux/auth';
+import { useMatchMedia } from 'hooks';
 
 import {
   Header,
@@ -9,25 +13,46 @@ import {
   MainMenuWrapper,
   AuthMenuWrapper,
   MainSection,
-  // Footer,
+  StyledIcon,
+  Footer,
 } from './Layout.styled';
 
 const Layout = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(getIsLoggedIn);
+
+  const { isMobile } = useMatchMedia();
+
+  const onLogout = () => {
+    dispatch(authOperations.logOut());
+  };
+
   return (
     <>
       <Header>
         <Container>
           <Navigation>
             <MainMenuWrapper>
-              <StyledNavLink to="/">Home</StyledNavLink>
-              <StyledNavLink to="dragons">Dragons</StyledNavLink>
+              <StyledNavLink to="/" exact="true">
+                <StyledIcon />
+                {` `}Home
+              </StyledNavLink>
+              {isLoggedIn && (
+                <StyledNavLink to="dragons">Dragons</StyledNavLink>
+              )}
             </MainMenuWrapper>
+
             <AuthMenuWrapper>
-              <StyledNavLink to="signup">Signup</StyledNavLink>
-              <StyledNavLink to="login">Login</StyledNavLink>
-              <LogoutButton onClick={() => console.log('выйти')}>
-                Logout
-              </LogoutButton>
+              {!isLoggedIn && (
+                <>
+                  <StyledNavLink to="signup">Signup</StyledNavLink>
+                  <StyledNavLink to="login">Login</StyledNavLink>
+                </>
+              )}
+
+              {isLoggedIn && (
+                <LogoutButton onClick={onLogout}>Logout</LogoutButton>
+              )}
             </AuthMenuWrapper>
           </Navigation>
         </Container>
@@ -37,9 +62,11 @@ const Layout = () => {
           <Outlet />
         </Container>
       </MainSection>
-      {/* <Footer>
-        <Container>All right reserved</Container>
-      </Footer> */}
+      {!isMobile && (
+        <Footer>
+          <Container>All right reserved &copy;</Container>
+        </Footer>
+      )}
     </>
   );
 };

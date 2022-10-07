@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import backgroundImage from 'images/spacex-background.jpg';
 
 export const GlobalStyle = createGlobalStyle`
-    
+
     *,
     *::before,
     *::after {
@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
      background-size: cover;
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

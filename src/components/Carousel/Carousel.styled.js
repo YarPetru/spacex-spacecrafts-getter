@@ -45,28 +45,11 @@ export const ArrowWrapper = styled.div`
 `;
 
 export const LeftArrow = styled(BsChevronCompactLeft)`
-  /* position: absolute;
-  left: 3%;
-  top: 50%;
-  z-index: 999;
-  transform: translateY(-50%); */
   color: ${({ theme }) => theme.colors.white};
-
   transition: ${({ theme }) => theme.transition.transitionFunction};
-  /* :hover {
-    color: orange;
-  } */
 `;
 
 export const RightArrow = styled(BsChevronCompactRight)`
-  /* position: absolute;
-  right: 3%;
-  top: 50%;
-  z-index: 999;
-  transform: translateY(-50%); */
   color: ${({ theme }) => theme.colors.white};
   transition: ${({ theme }) => theme.transition.transitionFunction};
-  /* :hover {
-    color: orange;
-  } */
 `;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { StyledNavButton } from 'components/StyledComponents/CommonComponets.styled';
-// import { Link } from 'react-router-dom';
+import device from 'styles/device';
+import { StyledNavButton } from 'components/CommonComponents/CommonComponets.styled';
 
 export const CardWrapper = styled.div`
   position: relative;
@@ -9,14 +9,12 @@ export const CardWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
-
+  max-width: 720px;
   border-radius: 20px;
   padding: 20px;
+  font-family: 'Inter Tight';
   background-color: ${({ theme }) => theme.colors.transparentBackground};
-
   box-shadow: ${({ theme }) => theme.shadows.card};
-
-  max-width: 720px;
 `;
 
 export const CardTitle = styled.h2`
@@ -34,7 +32,16 @@ export const Picture = styled.img`
 `;
 
 export const DescriptionWrapper = styled.div`
-  width: 300px;
+  @media ${device.mobile} {
+    width: 240px;
+  }
+
+  @media ${device.tablet} {
+    width: 400px;
+  }
+
+  @media ${device.desktop} {
+  }
 `;
 
 export const Description = styled.p``;
@@ -47,18 +54,15 @@ export const ParametersItem = styled.li``;
 
 export const StyledLink = styled(StyledNavButton)`
   position: absolute;
-  top: 20px;
-  right: 20px;
-  /* padding: 12px 16px;
-  color: ${({ theme }) => theme.colors.white};
+  @media ${device.mobile} {
+    right: 20px;
+    top: 224px;
+  }
 
-  background-color: ${({ theme }) => theme.colors.transparentAccent};
-  border-radius: ${({ theme }) => theme.borders.buttonsBorderRadius};
-  box-shadow: ${({ theme }) => theme.shadows.card};
-  transition: ${({ theme }) => theme.transition.transitionFunction};
+  @media ${device.tablet} {
+    top: 20px;
+  }
 
-  :hover {
-    background-color: ${({ theme }) => theme.colors.accent};
-    box-shadow: ${({ theme }) => theme.shadows.button};
-  } */
+  @media ${device.desktop} {
+  }
 `;

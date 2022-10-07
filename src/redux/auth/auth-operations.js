@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import openNotification from 'utils/notification';
 
-import openNotificationWithIcon from 'components/Notification';
 axios.defaults.baseURL =
   'https://spacex-spacecrafts-backend.herokuapp.com/api/';
-// axios.defaults.baseURL = 'http://localhost:9999/api/';
 
 const token = {
   set(token) {
@@ -20,13 +19,10 @@ const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/register', credentials);
-      console.log(data);
-      console.log(credentials);
-
-      // token.set(data.data.token);
-      // return data.data;
+      token.set(data.data.token);
+      return data.data;
     } catch (error) {
-      openNotificationWithIcon('warning', error.response.data.message);
+      openNotification('warn', error.response.data.message);
       return rejectWithValue(error);
     }
   }
@@ -40,7 +36,7 @@ const logIn = createAsyncThunk(
       token.set(data.data.token);
       return data.data;
     } catch (error) {
-      openNotificationWithIcon('error', error.response.data.message);
+      openNotification('error', error.response.data.message);
       return rejectWithValue(error);
     }
   }
@@ -52,12 +48,12 @@ const logOut = createAsyncThunk(
     try {
       await axios.get('/auth/logout');
       token.unset();
-      openNotificationWithIcon(
+      openNotification(
         'success',
         'You have successfully logged out. See you later 👋'
       );
     } catch (error) {
-      openNotificationWithIcon('error', error.response.data.message);
+      openNotification('error', error.response.data.message);
       return rejectWithValue(error);
     }
   }

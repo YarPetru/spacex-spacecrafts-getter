@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import PulseLoader from 'react-spinners/PulseLoader';
+import openNotification from 'utils/notification';
 
 import { useGetDragonByIdQuery } from 'redux/dragons/dragonSlice';
 import Carousel from 'components/Carousel';
@@ -22,6 +24,7 @@ const DragonCard = () => {
     data: dragonDetails,
     isSuccess,
     isError,
+    isLoading,
   } = useGetDragonByIdQuery(dragonId, {
     refetchOnFocus: true,
   });
@@ -30,10 +33,18 @@ const DragonCard = () => {
 
   return (
     <>
+      {isError &&
+        openNotification(
+          'error',
+          'Oops. Something went wrong. Please try again'
+        )}
+
+      {isLoading && <PulseLoader />}
+
       {isSuccess && (
         <CardWrapper>
           <Carousel>
-            {images.map(img => (
+            {images?.map(img => (
               <Picture key={img} src={img} alt="dragon illustration" />
             ))}
           </Carousel>
@@ -61,7 +72,6 @@ const DragonCard = () => {
           <StyledLink to="/dragons">Back to list</StyledLink>
         </CardWrapper>
       )}
-      {isError && <p>Oops. Something went wrong</p>}
     </>
   );
 };

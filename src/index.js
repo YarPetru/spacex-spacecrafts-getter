@@ -13,14 +13,14 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/">
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <PersistGate loading={null} persistor={persistor}>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <PersistGate persistor={persistor}>
+          <BrowserRouter basename="/">
             <App />
-          </PersistGate>
-        </ThemeProvider>
-      </Provider>
-    </BrowserRouter>
+          </BrowserRouter>
+        </PersistGate>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 );

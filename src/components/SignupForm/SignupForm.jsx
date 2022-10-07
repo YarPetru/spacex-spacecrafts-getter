@@ -5,17 +5,15 @@ import { useDispatch } from 'react-redux';
 import PulseLoader from 'react-spinners/PulseLoader';
 
 import { authOperations } from 'redux/auth';
-import { getIsLoggedIn } from 'redux/auth';
-import { getFetchingCurrent } from 'redux/auth';
+import { getIsLoggedIn, getIsPendingState } from 'redux/auth';
 
 import {
   FormWrapper,
-  Overlay,
   StyledForm,
   FieldWrapper,
   FieldName,
   AccentedMark,
-  StyledField,
+  FormField,
   ValidationError,
   SubmitButton,
   LoginLink,
@@ -62,7 +60,7 @@ const initialValues = {
 const SignupForm = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsLoggedIn);
-  const isFetching = useSelector(getFetchingCurrent);
+  const isPending = useSelector(getIsPendingState);
 
   const handleSubmit = (values, actions) => {
     dispatch(authOperations.register(values));
@@ -72,7 +70,6 @@ const SignupForm = () => {
 
   return (
     <>
-      <Overlay />
       <FormWrapper>
         <Formik
           initialValues={initialValues}
@@ -86,7 +83,7 @@ const SignupForm = () => {
                   <FieldName htmlFor="name">
                     Name <AccentedMark>*</AccentedMark>
                   </FieldName>
-                  <StyledField
+                  <FormField
                     id="name"
                     name="name"
                     type="text"
@@ -100,7 +97,7 @@ const SignupForm = () => {
                   <FieldName htmlFor="email">
                     Email <AccentedMark>*</AccentedMark>
                   </FieldName>
-                  <StyledField
+                  <FormField
                     id="email"
                     name="email"
                     type="email"
@@ -114,7 +111,7 @@ const SignupForm = () => {
                   <FieldName htmlFor="password">
                     Password <AccentedMark>*</AccentedMark>
                   </FieldName>
-                  <StyledField
+                  <FormField
                     id="password"
                     name="password"
                     type="password"
@@ -130,7 +127,7 @@ const SignupForm = () => {
                   <FieldName htmlFor="repeatPassword">
                     Confirm password <AccentedMark>*</AccentedMark>
                   </FieldName>
-                  <StyledField
+                  <FormField
                     id="repeatPassword"
                     name="repeatPassword"
                     type="password"
@@ -152,7 +149,7 @@ const SignupForm = () => {
                   }
                 >
                   SignUp
-                  {isFetching && <PulseLoader color="white" size="4px" />}
+                  {isPending && <PulseLoader color="white" size="4px" />}
                 </SubmitButton>
                 <LoginLinkWrapper>
                   <IsRegistredParagraph>

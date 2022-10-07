@@ -1,10 +1,35 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import device from 'styles/device';
 
 export const PageTitle = styled.h2`
-  color: ${({ theme }) => theme.colors.secondaryFont};
-  font-size: 20px;
-  margin-bottom: 20px;
+  color: ${({ theme }) => theme.colors.mainBackground};
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  @media ${device.mobile} {
+    font-size: 16px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 20px;
+  }
+
+  @media ${device.desktop} {
+  }
+`;
+
+export const DescriptionParagraph = styled.p`
+  color: ${({ theme }) => theme.colors.mainBackground};
+  margin-bottom: 40px;
+
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 16px;
+  }
 `;
 
 export const List = styled.ul`
@@ -37,6 +62,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
+  border-radius: ${({ theme }) => theme.borders.mainBorderRadius};
   object-fit: cover;
   width: 100%;
   height: 100%;
@@ -54,8 +80,6 @@ export const Overlay = styled.div`
   justify-content: center;
   gap: 10px;
   align-items: center;
-  /* width: 50%; */
-  height: 50%;
 `;
 
 export const ItemName = styled.p`
@@ -77,7 +101,6 @@ export const StyledLink = styled(Link)`
   transition: ${({ theme }) => theme.transition.transitionFunction};
 
   :hover {
-    /* color: ${({ theme }) => theme.colors.white}; */
     box-shadow: ${({ theme }) => theme.shadows.button};
     background-color: ${({ theme }) => theme.colors.accent};
   }

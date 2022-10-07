@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Field } from 'formik';
 import device from 'styles/device';
 
 export const StyledNavButton = styled(Link)`
@@ -20,22 +21,37 @@ export const StyledNavButton = styled(Link)`
 export const StyledLink = styled(Link)`
   text-align: center;
   text-decoration: underline;
-  transition: ${p => p.theme.transition.transitionFunction};
+  transition: ${({ theme }) => theme.transition.transitionFunction};
 
   :hover,
   :focus {
     text-decoration: none;
-    color: ${p => p.theme.colors.accent};
+    color: ${({ theme }) => theme.colors.accent};
   }
 
   @media ${device.mobile} {
-    color: ${p => p.theme.colors.white};
+    color: ${({ theme }) => theme.colors.white};
   }
 
   @media ${device.tablet} {
-    color: ${p => p.theme.colors.transparentDarkblue};
+    color: ${({ theme }) => theme.colors.transparentDarkblue};
   }
 
   @media ${device.desktop} {
+  }
+`;
+
+export const StyledField = styled(Field)`
+  padding: 8px 12px;
+  outline: none;
+  border-radius: ${({ theme }) => theme.borders.buttonsBorderRadius};
+  border: 1px solid ${({ theme }) => theme.colors.inputBackground};
+  box-shadow: ${({ theme }) => theme.shadows.input};
+  background-color: ${({ theme }) => theme.colors.inputBackground};
+  transition: ${({ theme }) => theme.transition.transitionFunction};
+
+  :hover,
+  :focus {
+    border: 1px solid ${({ theme }) => theme.colors.accent};
   }
 `;

@@ -5,16 +5,15 @@ import { useDispatch } from 'react-redux';
 import PulseLoader from 'react-spinners/PulseLoader';
 
 import { authOperations } from 'redux/auth';
-import { getIsLoggedIn, getFetchingCurrent } from 'redux/auth';
+import { getIsLoggedIn, getIsPendingState } from 'redux/auth';
 
 import {
   FormWrapper,
-  Overlay,
   StyledForm,
   FieldWrapper,
   FieldName,
   AccentedMark,
-  StyledField,
+  FormField,
   ValidationError,
   SubmitButton,
   SignupLink,
@@ -54,17 +53,19 @@ const initialValues = {
 const LoginForm = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsLoggedIn);
-  const isFetching = useSelector(getFetchingCurrent);
+  const isPending = useSelector(getIsPendingState);
 
   const handleSubmit = (values, actions) => {
-    dispatch(authOperations.logIn(values));
+    const email = values?.email?.toLowerCase();
+    const password = values?.password;
+
+    dispatch(authOperations.logIn({ email, password }));
 
     isLoggedIn && actions.resetForm();
   };
 
   return (
     <>
-      <Overlay />
       <FormWrapper>
         <Formik
           initialValues={initialValues}
@@ -78,7 +79,7 @@ const LoginForm = () => {
                   <FieldName htmlFor="email">
                     Email <AccentedMark>*</AccentedMark>
                   </FieldName>
-                  <StyledField
+                  <FormField
                     id="email"
                     name="email"
                     type="text"
@@ -92,7 +93,7 @@ const LoginForm = () => {
                   <FieldName htmlFor="password">
                     Password <AccentedMark>*</AccentedMark>
                   </FieldName>
-                  <StyledField
+                  <FormField
                     id="password"
                     name="password"
                     type="password"
@@ -107,7 +108,7 @@ const LoginForm = () => {
                   disabled={(!touched.email && !touched.password) || !isValid}
                 >
                   LogIn
-                  {isFetching && <PulseLoader color="white" size="4px" />}
+                  {isPending && <PulseLoader color="white" size="4px" />}
                 </SubmitButton>
                 <RegisterLinkWrapper>
                   <IsRegistredParagraph>

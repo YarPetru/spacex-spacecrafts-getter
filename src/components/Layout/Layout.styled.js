@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { GiRocketFlight } from 'react-icons/gi';
 
 import device from 'styles/device';
 
 export const Header = styled.header`
   background-color: ${({ theme }) => theme.colors.mainBackground};
   color: white;
+  font-weight: 500;
+`;
+
+export const StyledIcon = styled(GiRocketFlight)`
+  color: currentColor;
 `;
 
 export const Navigation = styled.nav`
@@ -25,11 +31,11 @@ export const StyledNavLink = styled(NavLink)`
 
   :hover {
     color: ${({ theme }) => theme.colors.accent};
-    border-bottom: 2px solid ${({ theme }) => theme.colors.accent};
   }
-  .active {
-    color: ${({ theme }) => theme.colors.accent};
-  }
+
+  /* &.active {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.accent};
+  } */
 `;
 
 export const LogoutButton = styled.button`
@@ -39,6 +45,7 @@ export const LogoutButton = styled.button`
   background: none;
   font-family: inherit;
   font-size: inherit;
+  font-weight: 500;
   cursor: pointer;
   transition: ${({ theme }) => theme.transition.transitionFunction};
 
@@ -80,7 +87,18 @@ export const Footer = styled.footer`
   bottom: 0px;
   right: 0px;
   left: 0px;
-  min-height: 100px;
   color: ${({ theme }) => theme.colors.mainBackground};
   background-color: ${({ theme }) => theme.colors.darkblue};
+  @media ${device.mobile} {
+    height: 80px;
+    padding: 10px;
+  }
+
+  @media ${device.tablet} {
+    height: 100px;
+  }
+
+  @media ${device.desktop} {
+    padding: 20px;
+  }
 `;

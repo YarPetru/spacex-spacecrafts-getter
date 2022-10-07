@@ -1,1 +1,1 @@
-export const CAROUSEL_WINDOW_WIDTH = 300;
+export const CAROUSEL_WINDOW_WIDTH = 240;
