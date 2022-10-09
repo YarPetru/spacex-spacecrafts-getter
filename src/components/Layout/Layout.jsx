@@ -21,7 +21,7 @@ const Layout = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(getIsLoggedIn);
 
-  const { isMobile } = useMatchMedia();
+  const { isMobile, isDesktop } = useMatchMedia();
 
   const onLogout = () => {
     dispatch(authOperations.logOut());
@@ -34,8 +34,8 @@ const Layout = () => {
           <Navigation>
             <MainMenuWrapper>
               <StyledNavLink to="/" exact="true">
-                <StyledIcon />
-                {` `}Home
+                <StyledIcon size="24" />
+                {!isMobile && <> Home</>}
               </StyledNavLink>
               {isLoggedIn && (
                 <StyledNavLink to="dragons">Dragons</StyledNavLink>
@@ -62,7 +62,7 @@ const Layout = () => {
           <Outlet />
         </Container>
       </MainSection>
-      {!isMobile && (
+      {isDesktop && (
         <Footer>
           <Container>All right reserved &copy;</Container>
         </Footer>

@@ -12,7 +12,6 @@ export const CardWrapper = styled.div`
   max-width: 720px;
   border-radius: 20px;
   padding: 20px;
-  font-family: 'Inter Tight';
   background-color: ${({ theme }) => theme.colors.transparentBackground};
   box-shadow: ${({ theme }) => theme.shadows.card};
 `;
@@ -39,14 +38,22 @@ export const DescriptionWrapper = styled.div`
   @media ${device.tablet} {
     width: 400px;
   }
-
-  @media ${device.desktop} {
-  }
 `;
 
-export const Description = styled.p``;
+export const Description = styled.p`
+  text-align: justify;
+`;
 
-export const WikiLink = styled.a``;
+export const WikiLink = styled.a`
+  text-decoration: none;
+
+  transition: ${({ theme }) => theme.transition.transitionFunction};
+
+  :hover,
+  :focus {
+    text-decoration: underline;
+  }
+`;
 
 export const ParametersList = styled.ul``;
 

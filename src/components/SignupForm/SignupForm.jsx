@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import PulseLoader from 'react-spinners/PulseLoader';
@@ -19,6 +20,8 @@ import {
   LoginLink,
   IsRegistredParagraph,
   LoginLinkWrapper,
+  ClosedEyeIcon,
+  OpenEyeIcon,
 } from './SignupForm.styled';
 
 const validationSchema = yup.object().shape({
@@ -68,6 +71,12 @@ const SignupForm = () => {
     isLoggedIn && actions.resetForm();
   };
 
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+
+  const toggleEye = () => {
+    setIsVisiblePassword(!isVisiblePassword);
+  };
+
   return (
     <>
       <FormWrapper>
@@ -114,12 +123,19 @@ const SignupForm = () => {
                   <FormField
                     id="password"
                     name="password"
-                    type="password"
+                    type={isVisiblePassword ? 'text' : 'password'}
                     maxLength="30"
                     placeholder="..."
                     autoComplete="off"
                   />
-
+                  <ClosedEyeIcon
+                    visibility={isVisiblePassword.toString()}
+                    onClick={toggleEye}
+                  />
+                  <OpenEyeIcon
+                    visibility={isVisiblePassword.toString()}
+                    onClick={toggleEye}
+                  />
                   <ValidationError name="password" component="div" />
                 </FieldWrapper>
 

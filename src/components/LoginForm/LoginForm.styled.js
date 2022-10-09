@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { Form, ErrorMessage } from 'formik';
+import { GoEyeClosed, GoEye } from 'react-icons/go';
 import {
   StyledLink,
   StyledField,
 } from 'components/CommonComponents/CommonComponets.styled';
-
 import device from 'styles/device';
 
 export const FormWrapper = styled.div`
@@ -15,9 +15,6 @@ export const FormWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media ${device.mobile} {
-  }
-
   @media ${device.tablet} {
     padding: 40px;
   }
@@ -25,15 +22,6 @@ export const FormWrapper = styled.div`
   @media ${device.desktop} {
     padding: 60px;
   }
-`;
-
-export const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: ${p => p.theme.colors.transparentDarkblue};
 `;
 
 export const StyledForm = styled(Form)`
@@ -54,29 +42,21 @@ export const StyledForm = styled(Form)`
     width: 400px;
     background-color: ${p => p.theme.colors.white};
   }
-
-  @media ${device.desktop} {
-  }
 `;
 
 export const FieldWrapper = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 
-  @media ${device.mobile} {
-  }
-
-  @media ${device.tablet} {
-  }
-
-  @media ${device.desktop} {
-  }
+  color: ${p => p.theme.colors.secondaryFont};
 `;
 
 export const FieldName = styled.label`
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 16px;
   color: ${p => p.theme.colors.white};
 
   @media ${device.mobile} {
@@ -87,9 +67,6 @@ export const FieldName = styled.label`
     font-weight: 500;
     color: ${p => p.theme.colors.secondaryFont};
   }
-
-  @media ${device.desktop} {
-  }
 `;
 
 export const AccentedMark = styled.span`
@@ -98,6 +75,35 @@ export const AccentedMark = styled.span`
 
 export const FormField = styled(StyledField)`
   font-family: inherit;
+  font-weight: 500;
+  color: ${p => p.theme.colors.secondaryFont};
+
+  ::placeholder {
+    color: ${p => p.theme.colors.placeholderFont};
+  }
+`;
+
+export const ClosedEyeIcon = styled(GoEyeClosed)`
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  top: 36px;
+  opacity: ${props => (props.visibility === 'true' ? 1 : 0)};
+
+  color: currentColor;
+  cursor: pointer;
+`;
+
+export const OpenEyeIcon = styled(GoEye)`
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  top: 36px;
+
+  opacity: ${props => (props.visibility === 'false' ? 1 : 0)};
+
+  color: currentColor;
+  cursor: pointer;
 `;
 
 export const ValidationError = styled(ErrorMessage)`

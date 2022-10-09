@@ -3,23 +3,15 @@ const theme = {
     white: '#ffffff',
     black: '#000000',
     accent: '#ff6b08',
-    // ff6b0899
-    // FF6666
     transparentAccent: '#ff6b0899',
     darkblue: '#00080E',
-    // 031926
     transparentDarkblue: '#091e3fcc',
-
     mainBackground: '#f6f7fb',
     transparentBackground: '#f6f7fbc1',
-
     inputBackground: '#f5f7fa',
-
     primaryFont: '#242a37',
     secondaryFont: '#898f9f',
     placeholderFont: '#a6abb9',
-    // headerBackground: '#f5f4fa',
-    // footerBackground: '#b1b5c2',
   },
 
   shadows: {
