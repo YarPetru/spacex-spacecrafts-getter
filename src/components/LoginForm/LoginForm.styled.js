@@ -96,7 +96,9 @@ export const AccentedMark = styled.span`
   color: ${p => p.theme.colors.accent};
 `;
 
-export const FormField = styled(StyledField)``;
+export const FormField = styled(StyledField)`
+  font-family: inherit;
+`;
 
 export const ValidationError = styled(ErrorMessage)`
   font-size: 12px;
@@ -114,8 +116,9 @@ export const SubmitButton = styled.button`
   border-radius: ${p => p.theme.borders.buttonsBorderRadius};
   background-color: ${p => p.theme.colors.transparentAccent};
   color: ${p => p.theme.colors.white};
+  font-family: inherit;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
   transition: ${p => p.theme.transition.transitionFunction};
 
