@@ -38,6 +38,26 @@ hacking a bit more difficult 😅.
   [Yup](https://www.npmjs.com/package/yup) validation for Signup an Login forms
 - Deploy on [Netlify](https://ypi-spacex-dragons.netlify.app/)
 
+#### Requirements for registration and login fields
+
+Name:
+
+- 3 to 100 characters inclusive
+- starts with letter or number
+
+Email:
+
+- 10 to 50 characters inclusive
+- contains Latin letters, symbols, numbers
+- starts with letter or number
+- at least 2 characters before "@"
+
+Password:
+
+- 5 to 30 characters inclusive
+- contains Latin letters, symbols, numbers, excluding spaces
+- starts with letter or number
+
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
 

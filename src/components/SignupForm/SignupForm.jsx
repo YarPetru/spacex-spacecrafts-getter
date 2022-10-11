@@ -36,7 +36,7 @@ const validationSchema = yup.object().shape({
     .email('Enter a valid email')
     .min(10, 'Email must contain at least 10 characters')
     .max(50, 'Email must contain no more than 50 characters')
-    .matches(/^[a-zA-Z0-9]/, 'Name must start with letter or number')
+    .matches(/^[a-zA-Z0-9]/, 'Email must start with letter or number')
     .matches(
       /^([a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]{2,})+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
       'The Email field can only contain Latin letters, numbers and signs, and at least 2 charachters before "@"'
