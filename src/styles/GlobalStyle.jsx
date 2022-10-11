@@ -2,8 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import backgroundImage from 'images/spacex-background.jpg';
 
 export const GlobalStyle = createGlobalStyle`  
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;600;700&display=swap');
-
     *,
     *::before,
     *::after {

@@ -89,16 +89,11 @@ export const Footer = styled.footer`
   left: 0px;
   color: ${({ theme }) => theme.colors.mainBackground};
   background-color: ${({ theme }) => theme.colors.darkblue};
-  @media ${device.mobile} {
-    height: 80px;
-    padding: 10px;
-  }
 
   @media ${device.tablet} {
-    height: 100px;
+    height: 80px;
   }
 
   @media ${device.desktop} {
-    padding: 20px;
   }
 `;
