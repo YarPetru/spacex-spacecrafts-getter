@@ -143,8 +143,9 @@ export const SignupLink = styled(StyledLink)``;
 export const RegisterLinkWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 16px;
   gap: 8px;
+  margin-top: 16px;
+  font-size: 14px;
 `;
 
 export const IsRegistredParagraph = styled.p`

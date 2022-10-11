@@ -141,8 +141,9 @@ export const SubmitButton = styled.button`
 export const LoginLinkWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 16px;
   gap: 8px;
+  margin-top: 16px;
+  font-size: 14px;
 `;
 
 export const LoginLink = styled(StyledLink)``;

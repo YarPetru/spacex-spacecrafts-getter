@@ -19,13 +19,13 @@ export const GreetingWrapper = styled.div`
   }
 
   @media ${device.tablet} {
-    height: 440px;
+    height: 420px;
     padding: 40px;
     font-size: 20px;
   }
 
   @media ${device.desktop} {
-    height: 520px;
+    height: 480px;
   }
 `;
 
@@ -45,9 +45,6 @@ export const Title = styled.h2`
   @media ${device.tablet} {
     font-size: 24px;
     margin-bottom: 60px;
-  }
-
-  @media ${device.desktop} {
   }
 `;
 
@@ -71,8 +68,5 @@ export const AuthButton = styled(StyledNavButton)`
 
   @media ${device.tablet} {
     min-width: 120px;
-  }
-
-  @media ${device.desktop} {
   }
 `;
