@@ -87,7 +87,7 @@ export const ClosedEyeIcon = styled(GoEyeClosed)`
   position: absolute;
   z-index: 10;
   right: 10px;
-  top: 36px;
+  top: 39px;
   opacity: ${props => (props.visibility === 'true' ? 1 : 0)};
 
   color: currentColor;
@@ -98,7 +98,7 @@ export const OpenEyeIcon = styled(GoEye)`
   position: absolute;
   z-index: 10;
   right: 10px;
-  top: 36px;
+  top: 39px;
 
   opacity: ${props => (props.visibility === 'false' ? 1 : 0)};
 

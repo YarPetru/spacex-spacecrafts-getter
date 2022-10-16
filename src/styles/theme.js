@@ -10,7 +10,7 @@ const theme = {
     transparentBackground: '#f6f7fbc1',
     inputBackground: '#f5f7fa',
     primaryFont: '#242a37',
-    secondaryFont: '#898f9f',
+    secondaryFont: '#71757e',
     placeholderFont: '#a6abb9',
   },
 
