@@ -1,7 +1,6 @@
 import { useGetAllDragonsQuery } from 'redux/dragons/dragonSlice';
 import PulseLoader from 'react-spinners/PulseLoader';
 import openNotification from 'utils/notification';
-import { useGetFavesQuery } from 'redux/dragons/faveSlice';
 
 import {
   PageTitle,
@@ -22,10 +21,6 @@ const DragonList = () => {
     isLoading,
     isSuccess,
   } = useGetAllDragonsQuery({ refetchOnFocus: true });
-
-  const { data: faves } = useGetFavesQuery();
-
-  console.log(faves);
 
   return (
     <>
