@@ -3,7 +3,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import openNotification from 'utils/notification';
 
 axios.defaults.baseURL =
-  'https://spacex-spacecrafts-backend.herokuapp.com/api/';
+  // 'https://spacex-spacecrafts-backend.herokuapp.com/api/';
+  'https://spacex-spacecrafts-backend.onrender.com/api/';
 
 const token = {
   set(token) {

@@ -16,9 +16,9 @@ current information about spacecrafts by SpaceX named Dragons.
 
 [Project on GitHub](https://github.com/YarPetru/spacex-spacecrafts-backend)
 Backend deployed on
-[heroku](https://spacex-spacecrafts-backend.herokuapp.com/api/). All changes on
-github branch are automaticaly deployed on Heroku. If you want to run the app in
-production/developer mode on your computer remember to change the
+[render.com](https://spacex-spacecrafts-backend.onrender.com/api/). All changes
+on github branch are automaticaly deployed on Heroku. If you want to run the app
+in production/developer mode on your computer remember to change the
 "axios.defaults.baseURL" in Frontend part to "http://localhost:9999/".
 
 Backend created using basic security terms such as password encryption during
